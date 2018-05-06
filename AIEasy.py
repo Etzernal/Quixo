@@ -1,9 +1,9 @@
 import random
 #EASY
-#picktile
-#	create a list with possible tiles to be picked for first turn. aka the border tiles. 
+
+#create a list with possible tiles to be picked for first turn. aka the border tiles. 
 #board = [["-","A","B","C","D"],["1",0,2,2,0],["2",0,2,2,0],["3",2,0,0,2],["4",0,0,0,2]]
-#boardsize = len(board[1]) - 1 #4
+#boardsize = len(board[1]) - 1
 #playtile = 2
 #turncount = 4
 tile = []
@@ -45,14 +45,11 @@ def AITile(board,boardsize,turncount,playtile):
 				if board[row][1] == playtile:
 					tile = [row,4]
 					directionfrom = "left"
-					print(tile,directionfrom)
 				elif board[row][4] == playtile:
 					tile = [row,"1"]
 					directionfrom = "right"
-					print(tile,directionfrom)
 				else: 
 					tile = tilelist[randomindex]
-					print(tile,directionfrom)
 					
 		#print(tile,directionfrom)
 		for horizontalnum in range(1,boardsize +1):
@@ -63,7 +60,6 @@ def AITile(board,boardsize,turncount,playtile):
 					vertcount += 1
 				else:
 					pass
-
 			#print(vertcount)
 			if vertcount > 1:
 				if board[1][horizontalnum] == playtile:
@@ -73,12 +69,8 @@ def AITile(board,boardsize,turncount,playtile):
 				if board[4][horizontalnum] == playtile:
 					tile = [1,horizontalnum]
 					directionfrom = "below"
-					print(tile,directionfrom)
 				else: 
 					tile = tilelist[randomindex]
-					print(tile,directionfrom)
-
-		print("yay")
 		print(tile,directionfrom)
 	#TILE CHOSEN	
 	return tile,directionfrom
